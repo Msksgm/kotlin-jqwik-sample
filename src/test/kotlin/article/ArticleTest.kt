@@ -13,8 +13,8 @@ class ArticleTest {
         /**
          * when:
          */
-        val actual = Article(1, "dummy-title", "dummy-body")
-        val expected = Article(1, "dummy-title", "dummy-body")
+        val actual = Article.create(1, "dummy-title", "dummy-body")
+        val expected = Article.create(1, "dummy-title", "dummy-body")
 
         /**
          * then:
