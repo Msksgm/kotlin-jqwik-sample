@@ -10,6 +10,16 @@ class Article private constructor(val id: Int, val title: String, val body: Stri
                 id = id, title = title, body = body
             )
         }
+
+        /**
+         * 記事を再構成する
+         * - DB からバリデーションなしで作成するときに利用する
+         */
+        fun reconstruct(id: Int, title: String, body: String): Article {
+            return Article(
+                id = id, title = title, body = body
+            )
+        }
     }
 
     override fun equals(other: Any?): Boolean {

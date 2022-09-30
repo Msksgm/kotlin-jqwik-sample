@@ -14,7 +14,7 @@ class ArticleTest {
          * when:
          */
         val actual = Article.create(1, "dummy-title", "dummy-body")
-        val expected = Article.create(1, "dummy-title", "dummy-body")
+        val expected = Article.reconstruct(1, "dummy-title", "dummy-body")
 
         /**
          * then:
