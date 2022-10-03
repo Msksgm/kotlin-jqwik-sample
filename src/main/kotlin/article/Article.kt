@@ -1,11 +1,11 @@
 package article
 
-class Article private constructor(val id: Int, val title: String, val body: String) {
+class Article private constructor(val id: Int, val title: Title, val body: Body) {
     companion object {
         /**
          * 新しい記事を作成する
          */
-        fun create(id: Int, title: String, body: String): Article {
+        fun create(id: Int, title: Title, body: Body): Article {
             return Article(
                 id = id, title = title, body = body
             )
@@ -15,7 +15,7 @@ class Article private constructor(val id: Int, val title: String, val body: Stri
          * 記事を再構成する
          * - DB からバリデーションなしで作成するときに利用する
          */
-        fun reconstruct(id: Int, title: String, body: String): Article {
+        fun reconstruct(id: Int, title: Title, body: Body): Article {
             return Article(
                 id = id, title = title, body = body
             )

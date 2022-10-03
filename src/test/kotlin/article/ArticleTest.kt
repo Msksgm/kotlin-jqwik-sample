@@ -1,24 +1,15 @@
 package article
 
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Test
+import net.jqwik.api.ForAll
+import net.jqwik.api.From
+import net.jqwik.api.Property
 
 class ArticleTest {
-    @Test
-    fun `正常系`() {
-        /**
-         * given:
-         */
-
-        /**
-         * when:
-         */
-        val actual = Article.create(1, "dummy-title", "dummy-body")
-        val expected = Article.reconstruct(1, "dummy-title", "dummy-body")
-
-        /**
-         * then:
-         */
-        assertThat(actual).isEqualTo(expected)
+    @Property
+    fun `正常系 PBT`(
+        @ForAll @From(supplier = TitleTest.TitleInvalidRange::class) title: String,
+        @ForAll @From(supplier = BodyTest.BodyValidRange::class) body: String,
+    ) {
+        // テストを記述する
     }
 }
