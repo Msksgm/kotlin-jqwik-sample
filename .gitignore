@@ -79,3 +79,4 @@ kotlin-ide/
 #
 .idea
 !gradle/wrapper/gradle-wrapper.jar
+.jqwik-database
