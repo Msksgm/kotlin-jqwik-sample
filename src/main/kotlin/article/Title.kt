@@ -15,7 +15,7 @@ interface Title {
          */
         fun new(title: String): Title {
             if (title.isEmpty() || title.length > 32) {
-                TODO()
+                throw IllegalArgumentException("$title は不正な値です。title は 1 文字以上 32 文字以下にしてください")
             }
 
             return TitleImpl(title)

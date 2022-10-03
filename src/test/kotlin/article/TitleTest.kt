@@ -7,6 +7,7 @@ import net.jqwik.api.ForAll
 import net.jqwik.api.From
 import net.jqwik.api.Property
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.assertThrows
 
 class TitleTest {
     class TitleValidRange : ArbitrarySupplier<String> {
@@ -27,6 +28,31 @@ class TitleTest {
 
         /**
          * then:
+         */
+        assertThat(actual).isEqualTo(expected)
+    }
+
+    class TitleInvalidRange : ArbitrarySupplier<String> {
+        override fun get(): Arbitrary<String> = Arbitraries.strings().filter{ it.isEmpty() || it.length > 32}
+    }
+
+    @Property
+    fun `異常系 PBT with Arbitraries`(@ForAll @From(supplier = TitleInvalidRange::class) invalidString: String) {
+        /**
+         * given
+         */
+
+        /**
+         * when
+         */
+        val e: java.lang.IllegalArgumentException = assertThrows {
+            Title.new(invalidString)
+        }
+        val actual = e.message
+        val expected = "$invalidString は不正な値です。title は 1 文字以上 32 文字以下にしてください"
+
+        /**
+         * then
          */
         assertThat(actual).isEqualTo(expected)
     }
