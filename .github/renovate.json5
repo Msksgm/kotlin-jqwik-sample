@@ -1,6 +1,25 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    ":timezone(Asia/Tokyo)"
+  ],
+  labels: [
+    "dependencies"
+  ],
+  dependencyDashboard: true,
+  packageRules: [
+    {
+      groupName: "org.jetbrains.kotlin.*",
+      description: "一緒に上げないとCIが落ちる",
+      matchPackagePrefixes: [
+        "org.jetbrains.kotlin.",
+      ]
+    },
+    {
+      groupName: "jqwik系",
+      matchPackagePrefixes: [
+        "net.jqwik",
+      ]
+    },
+  ],
 }
