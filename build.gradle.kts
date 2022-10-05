@@ -2,6 +2,22 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.7.10"
+
+    /**
+     * detekt
+     *
+     * URL
+     * - https://github.com/detekt/detekt
+     * GradlePlugins(plugins.gradle.org)
+     * - https://plugins.gradle.org/plugin/io.gitlab.arturbosch.detekt
+     * Main用途
+     * - Linter/Formatter
+     * Sub用途
+     * - 無し
+     * 概要
+     * KotlinのLinter/Formatter
+     */
+    id("io.gitlab.arturbosch.detekt") version "1.21.0"
 }
 
 group = "org.example"
@@ -48,6 +64,16 @@ dependencies {
      */
     testImplementation("net.jqwik:jqwik:1.6.5")
     testImplementation("net.jqwik:jqwik-kotlin:1.6.5")
+
+    /**
+     * detektの拡張: detekt-formatting
+     *
+     * 概要
+     * - formattingのルール
+     * - 基本はktlintと同じ
+     * - format自動適用オプションの autoCorrect が使えるようになる
+     */
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0")
 }
 
 tasks.test {

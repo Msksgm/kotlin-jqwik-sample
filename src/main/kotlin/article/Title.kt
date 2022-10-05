@@ -7,6 +7,8 @@ interface Title {
      * Factory メソッド
      */
     companion object {
+        private const val maximum: Int = 32
+
         /**
          * バリデーションあり
          *
@@ -14,8 +16,8 @@ interface Title {
          * @return
          */
         fun new(title: String): Title {
-            if (title.isEmpty() || title.length > 32) {
-                throw IllegalArgumentException("$title は不正な値です。title は 1 文字以上 32 文字以下にしてください")
+            if (title.isEmpty() || title.length > maximum) {
+                throw IllegalArgumentException("$title は不正な値です。title は 1 文字以上 $maximum 文字以下にしてください")
             }
 
             return TitleImpl(title)
