@@ -33,7 +33,7 @@ class TitleTest {
     }
 
     class TitleInvalidRange : ArbitrarySupplier<String> {
-        override fun get(): Arbitrary<String> = Arbitraries.strings().filter{ it.isEmpty() || it.length > 32}
+        override fun get(): Arbitrary<String> = Arbitraries.strings().filter { it.isEmpty() || it.length > 32 }
     }
 
     @Property

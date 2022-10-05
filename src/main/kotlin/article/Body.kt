@@ -7,6 +7,8 @@ interface Body {
      * Factory メソッド
      */
     companion object {
+        private const val maximum = 1024
+
         /**
          * バリデーションあり
          *
@@ -14,8 +16,8 @@ interface Body {
          * @return
          */
         fun new(body: String): Body {
-            if (body.isEmpty() || body.length > 1024){
-                throw  IllegalArgumentException("$body は不正な値です。body は 1 以上 1024 文字以下にしてください。")
+            if (body.isEmpty() || body.length > maximum) {
+                throw IllegalArgumentException("$body は不正な値です。body は 1 以上 $maximum 文字以下にしてください。")
             }
 
             return BodyImpl(body)
