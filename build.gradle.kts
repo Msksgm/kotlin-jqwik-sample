@@ -62,8 +62,8 @@ dependencies {
      * - https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237
      * - https://johanneslink.net/property-based-testing-in-kotlin/#jqwiks-kotlin-support
      */
-    testImplementation("net.jqwik:jqwik:1.8.2")
-    testImplementation("net.jqwik:jqwik-kotlin:1.8.2")
+    testImplementation("net.jqwik:jqwik:1.8.3")
+    testImplementation("net.jqwik:jqwik-kotlin:1.8.3")
 
     /**
      * detektの拡張: detekt-formatting
