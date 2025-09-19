@@ -44,7 +44,7 @@ dependencies {
      * 概要
      * - JUnit等を直感的に利用するためのライブラリ
      */
-    testImplementation("org.assertj:assertj-core:3.27.4")
+    testImplementation("org.assertj:assertj-core:3.27.5")
 
     /**
      * jqwik
