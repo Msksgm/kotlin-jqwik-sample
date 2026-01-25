@@ -73,7 +73,7 @@ dependencies {
      * - 基本はktlintと同じ
      * - format自動適用オプションの autoCorrect が使えるようになる
      */
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.8")
 }
 
 tasks.test {
